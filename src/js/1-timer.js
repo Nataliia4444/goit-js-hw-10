@@ -51,7 +51,7 @@ function OnClickBtnStart() {
     const currentTime = Date.now();
     const difference = userSelectedDate - currentTime;
     const result = convertMs(difference);
-    console.log(result);
+    // console.log(result);
     refs.days.textContent = result.days;
     refs.hours.textContent = result.hours;
     refs.minutes.textContent = result.minutes;

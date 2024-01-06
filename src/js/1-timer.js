@@ -1,5 +1,6 @@
 import flatpickr from 'flatpickr';
-import 'flatpickr/dist/themes/dark.css';
+// import 'flatpickr/dist/themes/dark.css';
+import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 let userSelectedDate = null;
@@ -40,7 +41,7 @@ const options = {
   },
 };
 
-//* FLATPICK
+//* FLATPICKR
 flatpickr(refs.input, options);
 
 //*CLICK ON THE START BUTTON

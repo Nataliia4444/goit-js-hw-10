@@ -40,7 +40,7 @@ const options = {
   },
 };
 
-//* FLATPICKR
+//* FLATPICK
 flatpickr(refs.input, options);
 
 //*CLICK ON THE START BUTTON

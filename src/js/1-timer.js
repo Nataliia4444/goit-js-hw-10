@@ -48,6 +48,7 @@ flatpickr(refs.input, options);
 refs.btnStart.addEventListener('click', OnClickBtnStart);
 function OnClickBtnStart() {
   refs.btnStart.disabled = true;
+
   setInterval(() => {
     const currentTime = Date.now();
     const difference = userSelectedDate - currentTime;

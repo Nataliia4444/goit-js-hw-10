@@ -4,6 +4,7 @@ import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 let userSelectedDate = null;
+let intervalId = null;
 
 //* REFERENSE
 const refs = {
@@ -49,16 +50,24 @@ refs.btnStart.addEventListener('click', OnClickBtnStart);
 function OnClickBtnStart() {
   refs.btnStart.disabled = true;
 
-  setInterval(() => {
-    const currentTime = Date.now();
-    const difference = userSelectedDate - currentTime;
-    const result = convertMs(difference);
+  intervalId = setInterval(startTimer, 1000);
+}
 
-    refs.days.textContent = result.days;
-    refs.hours.textContent = result.hours;
-    refs.minutes.textContent = result.minutes;
-    refs.seconds.textContent = result.seconds;
-  }, 1000);
+//* START THE TIMER
+function startTimer() {
+  const currentTime = Date.now();
+  const difference = userSelectedDate - currentTime;
+  // * CLEARING THE TIMER
+  if (difference < 0) {
+    clearInterval(intervalId);
+    return;
+  }
+  const result = convertMs(difference);
+
+  refs.days.textContent = result.days;
+  refs.hours.textContent = result.hours;
+  refs.minutes.textContent = result.minutes;
+  refs.seconds.textContent = result.seconds;
 }
 
 // *CONVERT MS
